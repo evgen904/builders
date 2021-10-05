@@ -41,7 +41,7 @@
         data() {
             return {
                 pageNum: 1,
-                perPage: 6,
+                perPage: 4,
                 totalFound: 36,
             }
         },
@@ -50,22 +50,19 @@
         },
         methods: {
             ...mapActions("gallery", ["getImages"]),
-            loadPage(event) {
+            loadPage(numberPage) {
                 this.$router.push({
                     name: "Gallery",
                     params: {
-                        id: event,
+                        id: numberPage,
                     },
                 });
-                this.loadImg(event)
+                this.loadImg(numberPage)
             },
             loadImg(page) {
-                const client_id = "3r8CIWg9-7z66Y2_s3f1uWcF6YF71NMUc8R-ekBMOzY";
-                const per_page = 4;
-
                 this.getImages({
-                    client_id: client_id,
-                    per_page: per_page,
+                    client_id: '3r8CIWg9-7z66Y2_s3f1uWcF6YF71NMUc8R-ekBMOzY',
+                    per_page: this.perPage,
                     page: page,
                 })
             }
