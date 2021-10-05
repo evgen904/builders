@@ -25,7 +25,7 @@
     import Paginate from "vuejs-paginate";
     import GalleryList from "./GalleryList";
     import baseLoader from "../../components/Base/baseLoader";
-    import {mapActions, mapState} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "gallery",
@@ -46,7 +46,7 @@
             }
         },
         computed: {
-            ...mapState("gallery", ["images"]),
+            ...mapGetters("gallery", ["images"]),
         },
         methods: {
             ...mapActions("gallery", ["getImages"]),
