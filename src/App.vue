@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to="/">Главная</router-link> |
-      <router-link to="/articles">Статьи</router-link>
-    </div>
+    <Heeader />
     <router-view/>
   </div>
 </template>
+
+<script>
+  import Heeader from "./components/Header"
+
+  export default {
+    name: 'App',
+    components: {
+      Heeader
+    }
+  }
+</script>
 
 <style lang="scss">
 #app {
