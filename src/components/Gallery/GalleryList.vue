@@ -1,17 +1,17 @@
 <template>
     <div class="images">
         <div class="images--item" v-for="(item, index) in images" :key="index">
-            <a class="author" :href="item.user.links.html" target="_blank">
+            <a class="author" :href="item.link" target="_blank">
                 <div class="author--left">
-                    <img :src="item.user.profile_image.small" :alt="item.user.name" />
+                    <img :src="item.authorImg" :alt="item.name" />
                 </div>
                 <div class="author--right">
-                    <div class="author--name">{{ item.user.name }}</div>
-                    <div class="author--link">{{ item.user.username }}</div>
+                    <div class="author--name">{{ item.name }}</div>
+                    <div class="author--link">{{ item.userName }}</div>
                 </div>
             </a>
             <div class="image">
-                <img :src="item.urls.regular" :alt="item.alt_description" />
+                <img :src="item.regular" :alt="item.altDescription" />
             </div>
             <div class="view">
                 {{ item.likes }}
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-    import {mapState} from "vuex";
+    import {mapGetters} from "vuex";
     export default {
         name: "GalleryList",
         computed: {
-            ...mapState("gallery", ["images"]),
+            ...mapGetters("gallery", ["images"]),
         },
     }
 </script>
