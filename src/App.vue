@@ -7,11 +7,17 @@
 
 <script>
   import Heeader from "./components/Header"
+  import bridge from "@vkontakte/vk-bridge";
 
   export default {
     name: 'App',
     components: {
       Heeader
+    },
+    mounted() {
+      bridge.send("VKWebAppInit", {}).then((response) => {
+
+      });
     }
   }
 </script>
